@@ -1,0 +1,121 @@
+/* ==========================================================================
+   COLOR PALETTE (Change colors here to update your entire theme instantly)
+   ========================================================================== */
+@define-color bg_main       rgba(12, 28, 20, 0.92);  /* Deep Forest Green */
+@define-color bg_hover      rgba(24, 52, 38, 0.95);  /* Lighter Forest Green hover */
+@define-color border_gold   rgba(212, 175, 55, 0.25); /* Subtle gold border */
+@define-color border_hover  rgba(212, 175, 55, 0.50); /* Bright gold border on hover */
+
+@define-color gold          #afa268;                  /* Accent Gold */
+@define-color gold_glow     rgba(212, 175, 55, 0.12); /* Subtle workspace hover */
+@define-color sage          #8dae9d;                  /* Subdued text / icons */
+@define-color dark_sage     #5c7e6c;                  /* Inactive workspace text */
+@define-color dark_text     #0a1610;                  /* Contrast text for solid gold buttons */
+@define-color text_white    #ffffff;                  /* Main digits and icon color */
+@define-color alert_red     #e67e80;                  /* Urgent / Critical alert red */
+@define-color battery_green #a3be8c;                  /* Charging status green */
+
+/* ==========================================================================
+   STYLES (Uses @variable references)
+   ========================================================================== */
+* {
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", "Noto Sans", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: @text_white;
+}
+
+/* --- Workspaces --- */
+#workspaces {
+    margin: 4px 8px;
+    padding: 0 4px;
+    color: @bg_main;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    box-shadow: none;
+    border: @gold;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+    background: @gold_glow;
+    border: @bg_main;
+    color: @gold;
+}
+
+#workspaces button.focused, 
+#workspaces button.active {
+    color: @gold;
+    border-bottom: 2px solid @gold;
+}
+
+#workspaces button.urgent {
+    color: @alert_red;
+    border-bottom: 2px solid @alert_red;
+}
+
+/* --- Base Modules --- */
+#clock,
+#battery,
+#network,
+#power-profiles-daemon,
+#pulseaudio,
+#custom-media,
+#idle_inhibitor,
+#window,
+#tray {
+    padding: 0 10px;
+    margin: 4px 2px;
+    background-color: @bg_main;    
+    border: 1px solid @gold;
+    border-radius: 6px;
+    color: @gold;
+    transition: all 0.2s ease-in-out;
+    font-weight:bold;
+}
+
+#clock:hover,
+#battery:hover,
+#network:hover,
+#power-profiles-daemon:hover,
+#pulseaudio:hover,
+#custom-media:hover,
+#idle_inhibitor:hover,
+#window:hover,
+#tray:hover {
+    background-color: @bg_hover;
+    border-color: @border_hover;
+}
+
+#clock {}
+
+#window {}
+
+#idle_inhibitor {}
+
+#idle_inhibitor.activated {
+    background-color: @gold;
+    color: @bg_main;
+    border-color: @gold;
+}
+
+#battery.charging, 
+#battery.plugged {
+    color: @battery_green;
+}
+
+#battery.critical:not(.charging) {
+    color: @alert_red;
+}
+
+#network.disconnected {
+    color: @alert_red;
+}

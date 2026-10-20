@@ -1,0 +1,113 @@
+* {
+    /* JetBrains Mono or any clean Nerd Font is highly recommended */
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", "Noto Sans", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: transparent; /* No bar background for a clean, floating look */
+    color: #f0e6d2; /* Soft metallic gold-tinted base text */
+}
+
+/* --- Workspaces (Minimalist Indicators) --- */
+#workspaces {
+    margin: 4px 8px;
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #4a6352; /* Muted dark forest green inactive text */
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: #d4af37; /* Warm metallic gold on hover */
+}
+
+#workspaces button.focused, 
+#workspaces button.active {
+    color: #d4af37; /* Rich gold text for active workspace */
+    border-bottom: 2px solid #d4af37; /* Elegant gold underline accent */
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: #e67e80;
+    border-bottom: 2px solid #e67e80;
+}
+
+/* --- Base Modules Styling --- */
+#clock,
+#battery,
+#network,
+#power-profiles-daemon,
+#pulseaudio,
+#custom-media,
+#idle_inhibitor,
+#window,
+#tray {
+    padding: 0 10px;
+    margin: 4px 2px;
+    background-color: rgba(10, 22, 16, 0.95); /* Darker green with 95% opacity */    
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Light border to separate pills from sky wallpapers */
+    border-radius: 6px;
+    color: #ffffff; /* Crisp white text and icons */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover highlights across all modules */
+#clock:hover,
+#battery:hover,
+#network:hover,
+#power-profiles-daemon:hover,
+#pulseaudio:hover,
+#custom-media:hover,
+#idle_inhibitor:hover,
+#window:hover,
+#tray:hover {
+    background-color: rgba(30, 58, 43, 0.95); /* Slightly lighter forest green on hover */
+}
+
+/* Focused system text highlight */
+#clock {
+    color: #e5c07b; /* Warm Gold */
+    font-weight: bold;
+}
+
+/* --- Idle Inhibitor Module --- */
+#idle_inhibitor {
+    color: #8fa89b;
+}
+
+#idle_inhibitor.activated {
+    background-color: #d4af37;
+    color: #0f1f17;
+    font-weight: bold;
+}
+
+/* --- System Alerts & Misc Modules --- */
+#battery.charging, 
+#battery.plugged {
+    color: #a3be8c;
+}
+
+#battery.critical:not(.charging) {
+    color: #e67e80;
+}
+
+#network.disconnected {
+    color: #e67e80;
+}
+
+#window {
+    color: #8fa89b;
+    font-size: 12px;
+}
+
